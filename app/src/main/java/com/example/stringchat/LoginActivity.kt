@@ -1,5 +1,6 @@
 package com.example.stringchat
 
+import android.app.Activity
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -17,9 +18,10 @@ class LoginActivity : AppCompatActivity() {
             val emailValue = email_address_field.text.toString()
             val passwordValue = password_field.text.toString()
 
-            val intent = Intent(this, HomeActivity::class.java)
+            val intent = Intent()
             intent.putExtra(EMAIL_KEY, emailValue)
-            startActivity(intent)
+            setResult(Activity.RESULT_OK, intent)
+            finish()
         }
 
     }
