@@ -64,7 +64,7 @@
                 android:padding="0dp"
                 android:text="Install"
                 android:textAllCaps="false"
-                app:backgroundTint="#304639" />
+                app:backgroundTint="#00C54F" />
         </LinearLayout>
     </LinearLayout>
 </LinearLayout>
