@@ -10,7 +10,5 @@ class HomeActivity : AppCompatActivity() {
         setContentView(R.layout.activity_home)
 
         val email = intent.getStringExtra(EMAIL_KEY)
-
-        email_value.text = email
     }
 }
