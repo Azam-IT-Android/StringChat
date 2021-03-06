@@ -2,6 +2,7 @@ package com.example.stringchat
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.Toast
 import kotlinx.android.synthetic.main.activity_home.*
 
 class HomeActivity : AppCompatActivity() {
@@ -9,8 +10,16 @@ class HomeActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_home)
 
-        val email = intent.getStringExtra(EMAIL_KEY)
+        checkBox.setOnCheckedChangeListener { buttonView, isChecked ->
+            if(isChecked){
+                Toast.makeText(this, "Agreed to Terms and Conditions", Toast.LENGTH_SHORT).show()
+            } else{
+                Toast.makeText(this, "Didn't Agree to Terms and Conditions", Toast.LENGTH_SHORT).show()
+            }
+        }
 
-        email_value.text = email
+        maleButton.setOnCheckedChangeListener { buttonView, isChecked ->
+
+        }
     }
 }
