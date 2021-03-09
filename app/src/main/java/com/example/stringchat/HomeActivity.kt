@@ -2,15 +2,23 @@ package com.example.stringchat
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
+import androidx.recyclerview.widget.LinearLayoutManager
+import com.github.kittinunf.fuel.httpGet
+import com.google.gson.Gson
+import com.google.gson.reflect.TypeToken
 import kotlinx.android.synthetic.main.activity_home.*
+import java.nio.charset.StandardCharsets
 
 class HomeActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_home)
 
-        val email = intent.getStringExtra(EMAIL_KEY)
+        colorListRecyclerView.adapter = ColorListAdapter()
+        colorListRecyclerView.layoutManager = LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false)
 
-        email_value.text = email
+        versionsRecyclerView.adapter = AndroidVersionsAdapter()
+        versionsRecyclerView.layoutManager = LinearLayoutManager(this)
     }
 }
