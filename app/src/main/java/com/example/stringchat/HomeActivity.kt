@@ -2,7 +2,6 @@ package com.example.stringchat
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.github.kittinunf.fuel.httpGet
 import com.google.gson.Gson
@@ -15,10 +14,15 @@ class HomeActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_home)
 
-        colorListRecyclerView.adapter = ColorListAdapter()
-        colorListRecyclerView.layoutManager = LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false)
+        "https://jsonplaceholder.typicode.com/todos/".httpGet().response {
+            request, response, result ->
+            val type = object: TypeToken<List<TodoItem>>(){}.type
+            val todoItems:List<TodoItem> = Gson().fromJson(result.get().toString(StandardCharsets.UTF_8), type)
 
-        versionsRecyclerView.adapter = AndroidVersionsAdapter()
-        versionsRecyclerView.layoutManager = LinearLayoutManager(this)
+            versionsRecyclerView.adapter = TodoItemsAdapter(todoItems)
+            versionsRecyclerView.layoutManager = LinearLayoutManager(this)
+        }
+
+
     }
 }
