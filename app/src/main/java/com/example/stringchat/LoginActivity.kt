@@ -17,6 +17,11 @@ class LoginActivity : AppCompatActivity() {
             val emailValue = email_address_field.text.toString()
             val passwordValue = password_field.text.toString()
 
+            val prefs = getSharedPreferences("LoginData", MODE_PRIVATE)
+            prefs.edit()
+                .putString(EMAIL_KEY, emailValue)
+                .apply()
+
             val intent = Intent(this, HomeActivity::class.java)
             intent.putExtra(EMAIL_KEY, emailValue)
             startActivity(intent)

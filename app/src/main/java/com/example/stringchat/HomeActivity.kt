@@ -12,5 +12,12 @@ class HomeActivity : AppCompatActivity() {
         val email = intent.getStringExtra(EMAIL_KEY)
 
         email_value.text = email
+
+        logoutButton.setOnClickListener {
+            val prefs = getSharedPreferences("LoginData", MODE_PRIVATE)
+            prefs.edit()
+                    .remove(EMAIL_KEY)
+                    .apply()
+        }
     }
 }
