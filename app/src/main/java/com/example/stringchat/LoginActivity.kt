@@ -22,5 +22,9 @@ class LoginActivity : AppCompatActivity() {
             startActivity(intent)
         }
 
+        register_text.setOnClickListener {
+            startActivity(Intent(this, SignUpActivity::class.java))
+        }
+
     }
 }
