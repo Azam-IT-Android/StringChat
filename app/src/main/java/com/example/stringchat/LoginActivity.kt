@@ -33,6 +33,11 @@ class LoginActivity : AppCompatActivity() {
                     }
                 } else {
                     withContext(Dispatchers.Main){
+                        val prefs = getSharedPreferences("LoginData", MODE_PRIVATE)
+                        prefs.edit()
+                            .putString(EMAIL_KEY, emailValue)
+                            .apply()
+
                         val intent = Intent(this@LoginActivity, HomeActivity::class.java)
                         intent.putExtra(EMAIL_KEY, emailValue)
                         startActivity(intent)
