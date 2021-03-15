@@ -49,7 +49,8 @@ class SignUpActivity : AppCompatActivity() {
                 emailValue,
                 passwordValue,
                 firstNameValue,
-                lastNameValue
+                lastNameValue,
+                10
             )
             val database = UserDatabase.getInstance(this)
             val dao = database.getUserDao()

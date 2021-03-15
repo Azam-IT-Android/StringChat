@@ -10,5 +10,6 @@ class User(
     var email: String,
     var password: String,
     var firstName: String,
-    var lastName: String
+    var lastName: String,
+    var age: Int
 )
